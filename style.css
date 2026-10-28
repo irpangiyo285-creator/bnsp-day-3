@@ -1,0 +1,40 @@
+h1{
+        color:blue;
+        font-size: 50px;
+    }
+    h2{
+         color:aquamarine;
+        font-size: 28px;
+    }
+
+ button{
+    background-color: #2563eb;
+    color:white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+ }
+  button:hover{
+    background-color: blueviolet;
+  color: aquamarine;
+
+  }
+  .judul{
+    color: aliceblue;
+  }
+  #btn-simpan{
+background-color: blue;
+color: aliceblue;
+  }
+
+  .navara{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    gap: 16px;
+  }
+  navara{
+    display: flex;
+    gap: 16px;
+  }

@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Irpan Giyo Saputra</title>
+
+    <style>
+        /* RESET CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        .hero {
+            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            color: white;
+            padding: 55px 20px 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 42px);
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            color: #dbeafe;
+            font-size: 16px;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 16px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 30px;
+            font-size: 13px;
+        }
+
+        /* CONTAINER UTAMA */
+        .container {
+            width: min(100% - 32px, 1000px);
+            margin: -65px auto 40px;
+            position: relative;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 12px 35px rgba(15,23,42,0.10);
+        }
+
+        /* FOTO PROFIL */
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            border: 5px solid #dbeafe;
+            box-shadow: 0 5px 20px rgba(37,99,235,0.15);
+            flex-shrink: 0;
+        }
+
+        .profile-info h2 {
+            color: #0f172a;
+            font-size: 27px;
+            margin-bottom: 5px;
+        }
+
+        .profile-info .role {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .profile-info p {
+            color: #64748b;
+        }
+
+        /* BAGIAN KONTEN */
+        .section {
+            padding-top: 30px;
+        }
+
+        .section-title {
+            font-size: 21px;
+            color: #0f172a;
+            margin-bottom: 18px;
+            padding-left: 13px;
+            border-left: 5px solid #2563eb;
+        }
+
+        /* IDENTITAS */
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .identity-item {
+            padding: 15px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .identity-item small {
+            display: block;
+            color: #64748b;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .identity-item strong {
+            color: #1e293b;
+            font-size: 14px;
+        }
+
+        /* PENDIDIKAN */
+        .timeline {
+            border-left: 2px solid #bfdbfe;
+            margin-left: 8px;
+            padding-left: 22px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 22px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -30px;
+            top: 7px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #2563eb;
+            border: 3px solid #dbeafe;
+        }
+
+        .year {
+            display: inline-block;
+            color: #2563eb;
+            background: #eff6ff;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item h3 {
+            font-size: 16px;
+            color: #1e293b;
+        }
+
+        .timeline-item p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* KEMAMPUAN */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .skill-name span:last-child {
+            color: #2563eb;
+        }
+
+        .progress {
+            height: 9px;
+            background: #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #38bdf8);
+            border-radius: 20px;
+        }
+
+        /* TENTANG SAYA */
+        .about {
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            padding: 20px;
+            border-radius: 12px;
+            color: #334155;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            background: #0f172a;
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* RESPONSIVE UNTUK TABLET DAN HP */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 40px 16px 85px;
+            }
+
+            .container {
+                width: calc(100% - 22px);
+                margin-top: -55px;
+            }
+
+            .profile-card {
+                padding: 20px 16px;
+                border-radius: 16px;
+            }
+
+            .profile-top {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .profile-photo {
+                width: 135px;
+                height: 135px;
+            }
+
+            .profile-info h2 {
+                font-size: 23px;
+            }
+
+            .identity-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 19px;
+            }
+        }
+
+        /* EFEK SAAT MOUSE DIARAHKAN */
+        .identity-item,
+        .timeline-item {
+            transition: transform 0.2s ease;
+        }
+
+        .identity-item:hover {
+            transform: translateY(-3px);
+            border-color: #93c5fd;
+        }
+
+        /* MODE CETAK */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .hero {
+                padding: 25px;
+                background: #1d4ed8;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .container {
+                width: 100%;
+                margin: 15px auto;
+            }
+
+            .profile-card {
+                box-shadow: none;
+                padding: 10px;
+            }
+
+            .identity-item,
+            .timeline-item,
+            .about,
+            .skills-grid {
+                break-inside: avoid;
+            }
+
+            footer {
+                background: white;
+                color: #333;
+            }
+
+            footer strong {
+                color: #111;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="hero">
+        <h1>CURRICULUM VITAE</h1>
+        <p>Daftar Riwayat Hidup</p>
+        <span class="badge">Mahasiswa Sistem Informasi</span>
+    </header>
+
+    <main class="container">
+        <div class="profile-card">
+
+            <!-- FOTO DAN PROFIL -->
+            <section class="profile-top">
+
+                <!-- Ganti foto.jpg dengan nama file foto kamu -->
+                <img
+                    src="irpan.jpeg"
+                    alt="Foto profil Irpan Giyo Saputra"
+                    class="profile-photo"
+                >
+
+                <div class="profile-info">
+                    <h2>Irpan Giyo Saputra</h2>
+                    <p class="role">Mahasiswa Sistem Informasi</p>
+                    <p>
+                        Universitas Nahdlatul Ulama Indonesia
+                    </p>
+                    <p>
+                        Tertarik pada pengembangan website
+                        dan teknologi informasi.
+                    </p>
+                </div>
+            </section>
+
+            <!-- IDENTITAS DIRI -->
+            <section class="section">
+                <h2 class="section-title">Identitas Diri</h2>
+
+                <div class="identity-grid">
+                    <div class="identity-item">
+                        <small>Nama Lengkap</small>
+                        <strong>Irpan Giyo Saputra</strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <small>NIM</small>
+                        <strong>24250003</strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <small>Program Studi</small>
+                        <strong>Sistem Informasi (SI)</strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <small>Perguruan Tinggi</small>
+                        <strong>Universitas Nahdlatul Ulama Indonesia</strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <small>Tempat, Tanggal Lahir</small>
+                        <strong>Sengkati Baru, 02-08-2005</strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <small>Jenis Kelamin</small>
+                        <strong>Laki-laki</strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <small>Alamat</small>
+                        <strong>Belanti Jaya</strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <small>Email</small>
+                        <strong>
+                            <a href="mailto:irpangiyo285@gmail.com">
+                                irpangiyo285@gmail.com
+                            </a>
+                        </strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <small>Nomor Telepon</small>
+                        <strong>085284050792</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIWAYAT PENDIDIKAN -->
+            <section class="section">
+                <h2 class="section-title">Riwayat Pendidikan</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="year">2011 - 2017</span>
+                        <h3>SDN 172/1 Belanti Jaya</h3>
+                        <p>Sekolah Dasar (SD)</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="year">2018 - 2020</span>
+                        <h3>PP Arrahman</h3>
+                        <p>Pendidikan tingkat SMP</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="year">2021 - 2024</span>
+                        <h3>SMK Yadika Jambi</h3>
+                        <p>Sekolah Menengah Kejuruan (SMK)</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="year">2028 - Sekarang</span>
+                        <h3>Universitas Nahdlatul Ulama Indonesia</h3>
+                        <p>Program Studi Sistem Informasi</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KEMAMPUAN -->
+            <section class="section">
+                <h2 class="section-title">Kemampuan</h2>
+
+                <div class="skills-grid">
+                    <div>
+                        <div class="skill-name">
+                            <span>Microsoft Word</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar"
+                                 style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="skill-name">
+                            <span>Microsoft Excel</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar"
+                                 style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="skill-name">
+                            <span>HTML Dasar</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar"
+                                 style="width: 65%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="skill-name">
+                            <span>Komunikasi</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar"
+                                 style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="skill-name">
+                            <span>Kerja Sama Tim</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar"
+                                 style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 12px; color: #64748b; margin-top: 12px;">
+                    Catatan: Persentase kemampuan merupakan contoh.
+                    Silakan sesuaikan dengan kemampuan sebenarnya.
+                </p>
+            </section>
+
+            <!-- TENTANG SAYA -->
+            <section class="section">
+                <h2 class="section-title">Tentang Saya</h2>
+
+                <div class="about">
+                    Saya adalah mahasiswa Program Studi Sistem Informasi
+                    yang tertarik mempelajari teknologi informasi,
+                    pembuatan website, dan pengembangan sistem informasi.
+                    Saya memiliki semangat untuk terus belajar,
+                    meningkatkan keterampilan, serta mengembangkan
+                    kemampuan dalam bidang teknologi.
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            &copy; 2026 <strong>Irpan Giyo Saputra</strong>.
+            Dibuat dengan HTML dan CSS.
+        </p>
+    </footer>
+
+</body>
+</html>
